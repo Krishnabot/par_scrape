@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# Default URL (Wikipedia List of Golf Courses in Japan)
-URL=${1:-"https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E3%81%AE%E3%82%B4%E3%83%AB%E3%83%95%E5%A0%B4%E4%B8%80%E8%A6%A7"}
+if [ -z "$1" ]; then
+  echo "You should enter a golf resort website to scrap"
+  exit 1
+fi
+URL=$1
 
 # Export the Google API Key from  .env
 if [ -f .env ]; then
